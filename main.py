@@ -60,6 +60,24 @@ def add_student():
     print("Student added successfully!")
 
 
+# Function to view all students
+def view_students():
+    """Display all students."""
+
+    if len(students) == 0:
+        print("\nNo students found.")
+        return
+
+    print("\n===== Student List =====")
+
+    for student in students:
+        print(f"ID    : {student['id']}")
+        print(f"Name  : {student['name']}")
+        print(f"Age   : {student['age']}")
+        print(f"Major : {student['major']}")
+        print("-" * 30)
+
+
 # Main function to start the application
 def main():
     # Load existing student data
@@ -68,11 +86,12 @@ def main():
     print(f"{len(students)} student(s) loaded.")
 
     # Add a new student
-    add_student()
-    print(students)
+    # add_student()
+    # print(students)
 
+    view_students()
     # Save the updated student data
-    save_data()
+    # save_data()
 
 
 
