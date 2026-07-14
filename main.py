@@ -107,6 +107,34 @@ def search_student():
     print(f"Major : {student['major']}")
 
 
+# Function to update an existing student's information
+def update_student():
+    """Update an existing student's information."""
+
+    student_id = input("Enter Student ID to update: ")
+
+    student = find_student_by_id(student_id)
+
+    if student is None:
+        print("Student not found.")
+        return
+
+    print("\nEnter the new student information.")
+
+    student["name"] = input("New Name: ")
+
+    while True:
+        try:
+            student["age"] = int(input("New Age: "))
+            break
+        except ValueError:
+            print("Please enter a valid number for age.")
+
+    student["major"] = input("New Major: ")
+
+    print("Student updated successfully!")
+
+
 # Main function to start the application
 def main():
     # Load existing student data
@@ -123,8 +151,12 @@ def main():
     # save_data()
 
     # Search for a student by ID
-    search_student()
+    # search_student()
 
+    # Update a student's information
+    update_student()
+
+    save_data()
 
 
 
