@@ -31,10 +31,9 @@ def add_student():
     student_id = input("Enter Student ID: ")
 
     # Check if the ID already exists
-    for student in students:
-        if student["id"] == student_id:
-            print("A student with this ID already exists.")
-            return
+    if find_student_by_id(student_id):
+        print("A student with this ID already exists.")
+        return
 
     name = input("Enter Student Name: ")
 
@@ -78,6 +77,36 @@ def view_students():
         print("-" * 30)
 
 
+# Helper function to find a student by ID (helps with searching, updating and deleting students)
+def find_student_by_id(student_id):
+    """Find a student by ID and return the student dictionary."""
+
+    for student in students:
+        if student["id"] == student_id:
+            return student
+
+    return None
+
+
+# Function to search for a student by ID
+def search_student():
+    """Search for a student using their ID."""
+
+    student_id = input("Enter Student ID: ")
+
+    student = find_student_by_id(student_id)
+
+    if student is None:
+        print("Student not found.")
+        return
+
+    print("\nStudent Found")
+    print(f"ID    : {student['id']}")
+    print(f"Name  : {student['name']}")
+    print(f"Age   : {student['age']}")
+    print(f"Major : {student['major']}")
+
+
 # Main function to start the application
 def main():
     # Load existing student data
@@ -89,9 +118,12 @@ def main():
     # add_student()
     # print(students)
 
-    view_students()
+    # view_students()
     # Save the updated student data
     # save_data()
+
+    # Search for a student by ID
+    search_student()
 
 
 
