@@ -135,6 +135,23 @@ def update_student():
     print("Student updated successfully!")
 
 
+# Function to delete a student from the system
+def delete_student():
+    """Delete a student from the system."""
+
+    student_id = input("Enter Student ID to delete: ")
+
+    student = find_student_by_id(student_id)
+
+    if student is None:
+        print("Student not found.")
+        return
+
+    students.remove(student)
+
+    print("Student deleted successfully!")
+
+
 # Main function to start the application
 def main():
     # Load existing student data
@@ -154,8 +171,11 @@ def main():
     # search_student()
 
     # Update a student's information
-    update_student()
+    # update_student()
 
+    # Delete a student from the system
+    delete_student()
+    
     save_data()
 
 
