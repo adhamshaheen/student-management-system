@@ -154,29 +154,49 @@ def delete_student():
 
 # Main function to start the application
 def main():
-    # Load existing student data
+    """Run the Student Management System."""
+
     load_data()
-    print("Student Management System Started!")
-    print(f"{len(students)} student(s) loaded.")
 
-    # Add a new student
-    # add_student()
-    # print(students)
+    while True:
+        print("\n===== Student Management System =====")
+        print("1. Add Student")
+        print("2. View Students")
+        print("3. Search Student")
+        print("4. Update Student")
+        print("5. Delete Student")
+        print("6. Save Data")
+        print("7. Exit")
 
-    # view_students()
-    # Save the updated student data
-    # save_data()
+        choice = input("Enter your choice (1-7): ")
 
-    # Search for a student by ID
-    # search_student()
+        if choice == "1":
+            add_student()
 
-    # Update a student's information
-    # update_student()
+        elif choice == "2":
+            view_students()
 
-    # Delete a student from the system
-    delete_student()
-    
-    save_data()
+        elif choice == "3":
+            search_student()
+
+        elif choice == "4":
+            update_student()
+
+        elif choice == "5":
+            delete_student()
+
+        elif choice == "6":
+            save_data()
+            print("Data saved successfully!")
+
+        elif choice == "7":
+            save_data()
+            print("Data saved successfully!")
+            print("Goodbye!")
+            break
+
+        else:
+            print("Invalid choice. Please enter a number from 1 to 7.")
 
 
 
