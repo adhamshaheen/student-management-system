@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "id": "1",
+        "name": "Adham Shaheen",
+        "age": 22,
+        "major": "Computer Engineering"
+    },
+    {
+        "id": "2",
+        "name": "Ziad Shaheen",
+        "age": 18,
+        "major": "Business"
+    }
+]
