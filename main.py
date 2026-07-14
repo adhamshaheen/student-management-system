@@ -1,7 +1,9 @@
 import json
 
+# Global list to store student data
 students = []
 
+#==========================================    CRUD OPERATIONS + Load/Save   ==========================================#
 
 # Function to load student data from a JSON file
 def load_data():
@@ -150,6 +152,9 @@ def delete_student():
     students.remove(student)
 
     print("Student deleted successfully!")
+
+
+#==========================================    MAIN FUNCTION    ==========================================#
 
 
 # Main function to start the application
