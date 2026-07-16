@@ -21,7 +21,7 @@ def initialize_database():
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS students (
-            id TEXT PRIMARY KEY,
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
             age INTEGER NOT NULL,
             major TEXT NOT NULL

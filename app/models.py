@@ -10,7 +10,7 @@ class StudentCreate(BaseModel):
 
 # Class to represent a student for response
 class StudentResponse(BaseModel):
-    id: str
+    id: int
     name: str
     age: int
     major: str

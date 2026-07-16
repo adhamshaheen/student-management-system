@@ -24,7 +24,13 @@ def create_student(student: StudentCreate):
 
     connection.commit()
 
+    # get the id of the created student
+    student_id = cursor.lastrowid
+
     connection.close()
+
+    # return the created student
+    return get_student_by_id(student_id)
 
 
 # Function to retrieve all students from the database
@@ -41,7 +47,15 @@ def get_all_students():
 
     connection.close()
 
-    return students
+    return [
+        {
+            "id": student[0],
+            "name": student[1],
+            "age": student[2],
+            "major": student[3]
+        }
+        for student in students
+    ]
 
 
 # Function to retrieve a student by ID from the database
@@ -62,7 +76,15 @@ def get_student_by_id(student_id):
 
     connection.close()
 
-    return student
+    if student:
+        return {
+            "id": student[0],
+            "name": student[1],
+            "age": student[2],
+            "major": student[3]
+        }
+
+    return None
 
 
 # Function to delete a student by ID from the database
@@ -88,6 +110,9 @@ def update_student(student_id, student: StudentCreate):
     connection.commit()
 
     connection.close()
+
+    # return the updated student
+    return get_student_by_id(student_id)
 
 
 # Function to delete a student by ID from the database
